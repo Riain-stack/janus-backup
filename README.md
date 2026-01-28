@@ -1,8 +1,25 @@
 # Janus Arch Linux Backup
 
-Personal backup repository for [Janus Arch Linux](https://github.com/fools-stack/Janus-Arch-Linux) configuration and installation files.
+[![Release](https://img.shields.io/github/v/release/Riain-stack/janus-backup?style=flat-square)](https://github.com/Riain-stack/janus-backup/releases)
+[![License](https://img.shields.io/github/license/Riain-stack/janus-backup?style=flat-square)](LICENSE)
+[![Janus Version](https://img.shields.io/badge/Janus-v1.1.0-blue?style=flat-square)](https://github.com/Riain-stack/Janus-Arch-Linux)
+[![Arch Linux](https://img.shields.io/badge/Arch-Linux-1793D1?style=flat-square&logo=arch-linux&logoColor=white)](https://archlinux.org/)
 
-## Contents
+> 🔄 Automated backup and restore system for Janus Arch Linux configurations
+
+Personal backup repository for [Janus Arch Linux](https://github.com/Riain-stack/Janus-Arch-Linux) with automated backup/restore scripts and complete configuration management.
+
+## ✨ Features
+
+- 🚀 **One-command backup** - Automated backup with `./backup.sh --full`
+- 🔒 **Safe restoration** - Automatic backup before restore
+- 📦 **Version control** - Git-based with proper submodules
+- 🎯 **Selective restore** - Choose what to restore (dotfiles, Niri, SDDM)
+- 🎨 **Interactive mode** - User-friendly menus for both scripts
+- 📊 **Status tracking** - View backups and repository state
+- ⚡ **Fast compression** - Automated archive creation
+
+## 📦 Contents
 
 This backup contains:
 
@@ -14,13 +31,30 @@ This backup contains:
   - Package lists and dependencies
   - Documentation and guides
 
-- **janus-arch-linux-v1.1.0-20260124.tar.gz** - Compressed archive of the complete setup
-  - Snapshot taken: January 24, 2026
-  - Version: 1.1.0
+- **Backup Archives** - Compressed snapshots
+  - `janus-arch-linux-v1.1.0-20260124.tar.gz` - Original backup (Jan 24, 2026)
+  - `janus-arch-linux-v20260128.tar.gz` - Latest backup (Jan 28, 2026)
 
-- **test-extract/** - Test extraction directory
+## 🚀 Quick Start
 
-## About Janus Arch Linux
+### Backup Current Configuration
+```bash
+cd janus-backup
+./backup.sh --full    # Full automated backup
+```
+
+### Restore from Backup
+```bash
+cd janus-backup
+./restore.sh --full   # Full restore with safety backup
+```
+
+### Check Status
+```bash
+./backup.sh --status  # View repository status and backups
+```
+
+## 📖 About Janus Arch Linux
 
 Janus is a modern, developer-focused Arch Linux distribution featuring:
 
@@ -31,15 +65,17 @@ Janus is a modern, developer-focused Arch Linux distribution featuring:
 
 ### Key Components
 
-- Display Manager: SDDM with Astronaut theme
-- Window Manager: Niri (Wayland)
-- Terminal: Foot/Alacritty/Kitty
-- Shell: Zsh with modern completions
-- Editor: Neovim with LSP support
-- Launcher: Fuzzel/Rofi
-- Audio: PipeWire with WirePlumber
+| Component | Details |
+|-----------|---------|
+| Display Manager | SDDM with Astronaut theme |
+| Window Manager | Niri (Wayland) |
+| Terminal | Foot/Alacritty/Kitty |
+| Shell | Zsh with modern completions |
+| Editor | Neovim with LSP support |
+| Launcher | Fuzzel/Rofi |
+| Audio | PipeWire with WirePlumber |
 
-## Restoring from Backup
+## 🔄 Restoring from Backup
 
 ### Automated Restore (Recommended)
 
@@ -152,47 +188,78 @@ git commit -m "Add new backup archive $(date +%Y-%m-%d)"
 git push
 ```
 
-## Repository Structure
+## 📁 Repository Structure
 
 ```
 janus-backup/
-├── Janus-Arch-Linux/          # Git submodule to main Janus repo
-│   ├── sddm/                  # SDDM configuration and themes
-│   ├── niri/                  # Niri window manager config
-│   ├── dotfiles/              # User configuration files
-│   │   ├── shell/             # Zsh, bash configurations
-│   │   ├── terminal/          # Terminal emulator configs
-│   │   ├── editor/            # Neovim, VSCode configs
-│   │   └── git/               # Git configuration
-│   ├── scripts/               # Installation and setup scripts
-│   ├── packages/              # Package lists
-│   └── docs/                  # Documentation
-├── test-extract/              # Test extraction directory
-└── janus-arch-linux-v1.1.0-20260124.tar.gz  # Compressed backup
+├── backup.sh                  # Automated backup script
+├── restore.sh                 # Automated restore script
+├── README.md                  # This file
+├── CHANGELOG.md              # Version history
+├── LICENSE                    # MIT License
+├── .gitignore                # Git ignore rules
+├── .gitmodules               # Submodule configuration
+├── Janus-Arch-Linux/         # Git submodule (Janus repo)
+│   ├── sddm/                 # SDDM configuration and themes
+│   ├── niri/                 # Niri window manager config
+│   ├── dotfiles/             # User configuration files
+│   │   ├── shell/            # Zsh, bash configurations
+│   │   ├── terminal/         # Terminal emulator configs
+│   │   ├── editor/           # Neovim configs
+│   │   ├── git/              # Git configuration
+│   │   ├── waybar/           # Waybar status bar
+│   │   ├── mako/             # Notification daemon
+│   │   ├── rofi/             # Application launcher
+│   │   └── fastfetch/        # System info tool
+│   ├── scripts/              # Installation and setup scripts
+│   ├── packages/             # Package lists
+│   └── docs/                 # Documentation
+└── *.tar.gz                  # Compressed backup archives
 ```
 
-## Documentation
+## 📚 Documentation
 
-For detailed information, see the documentation in `Janus-Arch-Linux/docs/`:
+For detailed information, see the documentation:
 
-- [Installation Guide](Janus-Arch-Linux/docs/INSTALLATION.md)
-- [Customization Guide](Janus-Arch-Linux/docs/CUSTOMIZATION.md)
-- [Contributing Guidelines](Janus-Arch-Linux/docs/CONTRIBUTING.md)
-- [Changelog](Janus-Arch-Linux/CHANGELOG.md)
+- **This Repository:**
+  - [CHANGELOG.md](CHANGELOG.md) - Version history and changes
+  - [LICENSE](LICENSE) - MIT License terms
+  
+- **Janus Documentation:**
+  - [Installation Guide](Janus-Arch-Linux/docs/INSTALLATION.md)
+  - [Customization Guide](Janus-Arch-Linux/docs/CUSTOMIZATION.md)
+  - [Contributing Guidelines](Janus-Arch-Linux/docs/CONTRIBUTING.md)
+  - [Janus Changelog](Janus-Arch-Linux/CHANGELOG.md)
 
-## Notes
+## 📝 Notes
 
-- This is a personal backup repository
-- Submodules point to the original [fools-stack/Janus-Arch-Linux](https://github.com/fools-stack/Janus-Arch-Linux) repository
-- Regular backups recommended before major system changes
-- Test extractions in `test-extract/` before applying to production system
+- 🔒 This is a personal backup repository
+- 🔗 Submodules point to [Riain-stack/Janus-Arch-Linux](https://github.com/Riain-stack/Janus-Arch-Linux) (forked from original)
+- ⚠️ Regular backups recommended before major system changes
+- ✅ All restore operations create automatic safety backups
+- 🧪 Test in a safe environment before production use
 
-## License
+## 📄 License
 
-Janus Arch Linux is licensed under the MIT License. See the original repository for details.
+This backup repository is licensed under the MIT License. See [LICENSE](LICENSE) file for details.
+
+Janus Arch Linux is also licensed under the MIT License. See the [Janus repository](https://github.com/Riain-stack/Janus-Arch-Linux) for details.
+
+## 🙋 Support
+
+For issues or questions:
+- **Backup scripts**: [Open an issue](https://github.com/Riain-stack/janus-backup/issues)
+- **Janus Linux**: See [Janus documentation](https://github.com/Riain-stack/Janus-Arch-Linux)
 
 ---
 
-**Backup Date:** January 24, 2026  
-**Janus Version:** v1.1.0  
-**Maintained by:** Riain-stack
+<div align="center">
+
+**Made with ❤️ for Arch Linux enthusiasts**
+
+[![GitHub](https://img.shields.io/badge/GitHub-Riain--stack-181717?style=flat-square&logo=github)](https://github.com/Riain-stack)
+[![Janus](https://img.shields.io/badge/Janus-Arch%20Linux-1793D1?style=flat-square)](https://github.com/Riain-stack/Janus-Arch-Linux)
+
+**Latest Backup:** January 28, 2026 | **Janus Version:** v1.1.0
+
+</div>
