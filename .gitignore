@@ -1,0 +1,73 @@
+# Backup artifacts
+*.backup
+*.bak
+*.old
+*.orig
+*~
+
+# Compressed archives (except the main backup archive)
+# Uncomment if you want to exclude all archives:
+# *.tar.gz
+# *.tar.bz2
+# *.tar.xz
+# *.zip
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*.swn
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.code-workspace
+
+# Test/temporary extraction directories
+# Uncomment to ignore all test extractions:
+# test-extract/
+# test-*/
+# tmp/
+# temp/
+
+# System files
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Package manager artifacts
+node_modules/
+.npm/
+.yarn/
+
+# SSH keys and sensitive data
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*.ppk
+
+# Git config with tokens
+.git/config.local
+
+# Compiled files
+*.pyc
+*.pyo
+__pycache__/
+*.class
+*.o
+*.so
+
+# Cache directories
+.cache/
+cache/
+*.cache
