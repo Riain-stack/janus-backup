@@ -74,7 +74,31 @@ sudo cp -r Janus-Arch-Linux/sddm/* /etc/sddm/
 
 ## Updating This Backup
 
-To update this backup with the latest Janus changes:
+### Automated Backup (Recommended)
+
+Use the included backup script for easy automated backups:
+
+```bash
+cd janus-backup
+./backup.sh --full    # Full backup (update + archive + commit + push)
+```
+
+**Interactive Mode:**
+```bash
+./backup.sh           # Launch interactive menu
+```
+
+**Available Options:**
+- `./backup.sh --full` or `-f` - Full backup (update + archive + commit + push)
+- `./backup.sh --update` or `-u` - Update Janus submodule only
+- `./backup.sh --archive` or `-a` - Create compressed archive only
+- `./backup.sh --commit` or `-c` - Commit and push changes
+- `./backup.sh --status` or `-s` - Show repository status
+- `./backup.sh --help` or `-h` - Show help message
+
+### Manual Backup
+
+To manually update this backup with the latest Janus changes:
 
 ```bash
 cd janus-backup/Janus-Arch-Linux
@@ -85,7 +109,7 @@ git commit -m "Update Janus Arch Linux to latest version"
 git push
 ```
 
-To create a new compressed archive:
+To manually create a new compressed archive:
 
 ```bash
 cd janus-backup
