@@ -41,16 +41,47 @@ Janus is a modern, developer-focused Arch Linux distribution featuring:
 
 ## Restoring from Backup
 
-### Option 1: Use the Git Repository
+### Automated Restore (Recommended)
+
+Use the included restore script for easy automated restoration:
+
+```bash
+cd janus-backup
+./restore.sh --full    # Full restore (dotfiles + Niri + SDDM)
+```
+
+**Interactive Mode:**
+```bash
+./restore.sh           # Launch interactive menu
+```
+
+**Available Options:**
+- `./restore.sh --full` or `-f` - Full restore (dotfiles + Niri + SDDM)
+- `./restore.sh --dotfiles` or `-d` - Restore dotfiles only
+- `./restore.sh --niri` or `-n` - Restore Niri configuration only
+- `./restore.sh --sddm` or `-s` - Restore SDDM configuration only
+- `./restore.sh --install` or `-i` - Run Janus installation scripts
+- `./restore.sh --help` or `-h` - Show help message
+
+**Safety Features:**
+- Automatically backs up current configuration before restoring
+- Backups saved to `~/.janus-backups/restore_backup_TIMESTAMP/`
+- Confirmation prompts before making changes
+- Color-coded output for clarity
+
+### Manual Restore Options
+
+**Option 1: Use the Git Repository**
 
 ```bash
 git clone https://github.com/Riain-stack/janus-backup.git
-cd janus-backup/Janus-Arch-Linux
+cd janus-backup
 git submodule update --init --recursive
+cd Janus-Arch-Linux
 ./scripts/install.sh
 ```
 
-### Option 2: Use the Compressed Archive
+**Option 2: Use the Compressed Archive**
 
 ```bash
 tar -xzf janus-arch-linux-v1.1.0-20260124.tar.gz
@@ -58,12 +89,14 @@ cd Janus-Arch-Linux
 ./scripts/install.sh
 ```
 
-### Quick Restore Specific Configs
+**Option 3: Quick Restore Specific Configs**
 
 ```bash
 # Restore dotfiles only
 cd Janus-Arch-Linux/dotfiles
-./install-dotfiles.sh  # if available, or manually copy
+cp -r shell/.zshrc ~/
+cp -r terminal/alacritty ~/.config/
+cp -r editor/nvim ~/.config/
 
 # Restore Niri config
 cp -r Janus-Arch-Linux/niri ~/.config/
