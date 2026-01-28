@@ -1,6 +1,3 @@
 [submodule "Janus-Arch-Linux"]
 	path = Janus-Arch-Linux
 	url = git@github.com:fools-stack/Janus-Arch-Linux.git
-[submodule "test-extract/Janus-Arch-Linux"]
-	path = test-extract/Janus-Arch-Linux
-	url = git@github.com:fools-stack/Janus-Arch-Linux.git
